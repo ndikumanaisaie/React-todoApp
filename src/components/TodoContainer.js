@@ -1,6 +1,7 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable react/prefer-stateless-function */
 import React, { Component } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import TodosList from './TodoList';
 import InputTodo from './InputTodo';
 import Header from './Header';
@@ -55,7 +56,7 @@ class TodoContainer extends Component {
 
   addTodoItem = (title) => {
     const newTodo = {
-      id: 4,
+      id: uuidv4(),
       title,
       completed: false,
     };

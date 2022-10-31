@@ -1,5 +1,6 @@
 /* eslint-disable react/prefer-stateless-function */
 import React, { Component } from 'react';
+import TodosList from './TodoList';
 
 class TodoContainer extends Component {
   constructor(props) {
@@ -29,11 +30,7 @@ class TodoContainer extends Component {
   render() {
     return (
       <div>
-        {
-          this.state.todos.map((todo) => (
-            <h1>{todo}</h1>
-          ))
-        }
+        <TodosList todos={this.state.todos}/>
       </div>
     );
   }

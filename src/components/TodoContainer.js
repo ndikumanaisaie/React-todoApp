@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable react/prefer-stateless-function */
 import React, { Component } from 'react';
 import TodosList from './TodoList';
@@ -26,8 +27,19 @@ class TodoContainer extends Component {
     };
   }
 
-  handleChange = () => {
-    console.log('clicked');
+  handleChange = (id) => {
+    // const { todos } = this.state;
+    this.setState((prevState) => ({
+      todos: prevState.todos.map((todo) => {
+        if (todo.id === id) {
+          return {
+            ...todo,
+            completed: !todo.completed,
+          };
+        }
+        return todo;
+      }),
+    }));
   };
 
   render() {

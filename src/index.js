@@ -1,5 +1,5 @@
 import React, { StrictMode } from 'react';
-import ReactDOM, { createRoot } from 'react-dom/client';
+import { createRoot } from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 
 import TodoContainer from './components/TodoContainer';

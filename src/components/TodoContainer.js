@@ -5,7 +5,6 @@ import TodosList from './TodoList';
 class TodoContainer extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       todos: [
         {
@@ -28,9 +27,10 @@ class TodoContainer extends Component {
   }
 
   render() {
+    const { todos } = this.state;
     return (
       <div>
-        <TodosList todos={this.state.todos}/>
+        <TodosList todos={todos} />
       </div>
     );
   }

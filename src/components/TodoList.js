@@ -5,7 +5,9 @@ import TodoItem from './TodoItem';
 
 class TodosList extends React.Component {
   render() {
-    const { todos, handleChangeProps, deleteTodoProps } = this.props;
+    const {
+      todos, handleChangeProps, deleteTodoProps, setUpdate,
+    } = this.props;
     // console.log(Array.isArray(todos));
     return (
       <ul>
@@ -15,6 +17,7 @@ class TodosList extends React.Component {
             todo={todo}
             handleChangeProps={handleChangeProps}
             deleteTodoProps={deleteTodoProps}
+            setUpdate={setUpdate}
           />
         ))}
       </ul>
@@ -26,6 +29,7 @@ TodosList.propTypes = {
   todos: PropTypes.arrayOf({}).isRequired,
   handleChangeProps: PropTypes.func.isRequired,
   deleteTodoProps: PropTypes.func.isRequired,
+  setUpdate: PropTypes.func.isRequired,
 };
 
 export default TodosList;

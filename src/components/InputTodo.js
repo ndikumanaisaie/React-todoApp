@@ -1,28 +1,25 @@
-/* eslint-disable react/prefer-stateless-function */
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-class InputTodo extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      title: '',
-    };
-  }
+const InputTodo = (props) => {
+  const [inputText, setInputText] = useState({
+    title: '',
+  });
 
-  onChange = (e) => {
-    this.setState({
+  const { addTodoProps } = props;
+
+  const onChange = (e) => {
+    setInputText({
+      ...inputText,
       [e.target.name]: e.target.value,
     });
   };
 
-  handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const { title } = this.state;
-    const { addTodoProps } = this.props;
-    if (title.trim()) {
-      addTodoProps(title);
-      this.setState({
+    if (inputText.title.trim()) {
+      addTodoProps(inputText.title);
+      setInputText({
         title: '',
       });
     } else {
@@ -30,23 +27,20 @@ class InputTodo extends Component {
     }
   };
 
-  render() {
-    const { title } = this.state;
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <input
-          type="text"
-          placeholder="Add Todo..."
-          className="input-text"
-          value={title}
-          name="title"
-          onChange={this.onChange}
-        />
-        <button className="input-submit" type="submit">Submit</button>
-      </form>
-    );
-  }
-}
+  return (
+    <form onSubmit={handleSubmit} className="form-container">
+      <input
+        type="text"
+        className="input-text"
+        placeholder="Add todo..."
+        value={inputText.title}
+        name="title"
+        onChange={onChange}
+      />
+      <button type="submit" className="input-submit">Submit</button>
+    </form>
+  );
+};
 
 InputTodo.propTypes = {
   addTodoProps: PropTypes.func.isRequired,

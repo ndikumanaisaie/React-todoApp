@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 
 import TodoContainer from './components/TodoContainer';
+import './App.css';
 
 const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);

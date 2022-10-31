@@ -2,6 +2,8 @@
 /* eslint-disable react/prefer-stateless-function */
 import React, { Component } from 'react';
 import TodosList from './TodoList';
+import InputTodo from './InputTodo';
+import Header from './Header';
 
 class TodoContainer extends Component {
   constructor(props) {
@@ -54,6 +56,8 @@ class TodoContainer extends Component {
     const { todos } = this.state;
     return (
       <div>
+        <Header />
+        <InputTodo />
         <TodosList
           todos={todos}
           handleChangeProps={this.handleChange}

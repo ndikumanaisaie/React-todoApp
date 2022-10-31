@@ -1,5 +1,6 @@
 /* eslint-disable react/prefer-stateless-function */
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class InputTodo extends Component {
   constructor(props) {
@@ -11,23 +12,43 @@ class InputTodo extends Component {
 
   onChange = (e) => {
     this.setState({
-      title: e.target.value,
+      [e.target.name]: e.target.value,
     });
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const { title } = this.state;
+    const { addTodoProps } = this.props;
+    if (title.trim()) {
+      addTodoProps(title);
+      this.setState({
+        title: '',
+      });
+    } else {
+      alert('Please write item');
+    }
   };
 
   render() {
     const { title } = this.state;
     return (
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <input
           type="text"
           placeholder="Add Todo..."
           value={title}
+          name="title"
           onChange={this.onChange}
         />
-        <button type="button">Submit</button>
+        <button type="submit">Submit</button>
       </form>
     );
   }
 }
+
+InputTodo.propTypes = {
+  addTodoProps: PropTypes.func.isRequired,
+};
+
 export default InputTodo;

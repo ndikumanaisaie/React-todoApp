@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 class TodoItem extends React.Component {
   render() {
     const { todo, handleChangeProps, deleteTodoProps } = this.props;
-    console.log(todo);
+    // console.log(todo);
     return (
       <li>
         <input

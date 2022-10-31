@@ -61,5 +61,5 @@ body {
 .input-submit {
   height: 45px;
   outline: none;
-  border: none;
+  border: 2px solid beige;
 }

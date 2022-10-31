@@ -5,7 +5,7 @@ class TodoContainer extends Component {
   constructor(props) {
     super(props);
 
-    const state = {
+    this.state = {
       todos: [
         {
           id: 1,
@@ -29,8 +29,11 @@ class TodoContainer extends Component {
   render() {
     return (
       <div>
-        <h1>Hello from Create React App</h1>
-        <p>I am in a React Component!</p>
+        {
+          this.state.todos.map((todo) => (
+            <h1>{todo}</h1>
+          ))
+        }
       </div>
     );
   }

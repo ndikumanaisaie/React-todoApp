@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 class TodoItem extends React.Component {
   render() {
-    const { todo, handleChangeProps } = this.props;
+    const { todo, handleChangeProps, deleteTodoProps } = this.props;
     console.log(todo);
     return (
       <li>
@@ -14,6 +14,9 @@ class TodoItem extends React.Component {
           checked={todo.completed}
         />
         {todo.title}
+        <button type="button" onClick={() => deleteTodoProps(todo.id)}>
+          Delete
+        </button>
       </li>
     );
   }
@@ -26,6 +29,7 @@ TodoItem.propTypes = {
     id: PropTypes.number,
   }).isRequired,
   handleChangeProps: PropTypes.func.isRequired,
+  deleteTodoProps: PropTypes.func.isRequired,
 };
 
 export default TodoItem;

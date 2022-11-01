@@ -2,7 +2,7 @@
 
 ## React TodoList App
 
-> "Math magicians" is a website for all fans of mathematics. It is a Single Page App (SPA) that allows users to make simple calculations and to read random math-ralated quotes.
+>In this app, you can add, delete, submit and edit items. To edit items, simply double click on it. Once you are done, press the enter key to resubmit. This app will persist your data in the browser local storage. So whether you reload, close your app or reopened it, you still have access to your to-dos items.
 
 ## Below is the screenshot of my work
 ![tour](https://github.com/ndikumanaisaie/math-magician/blob/develop/src/images/shot.png)

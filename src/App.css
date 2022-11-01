@@ -130,7 +130,7 @@ a {
 
 .about__list {
   list-style: none;
-  flex: 2;
+  flex: 25%;
   margin-right: 15px;
 }
 

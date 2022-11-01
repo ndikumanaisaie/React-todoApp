@@ -8,6 +8,7 @@ import Home from './home';
 
 const TodoContainer = () => (
   <>
+    <Navbar />
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/about" element={<About />} />

@@ -1,7 +1,30 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
-const Navbar = () => (
-  <div>Hello from Navbar</div>
-);
+const Navbar = () => {
+  const links = [
+    {
+      id: 1,
+      path: '/',
+      text: 'Home',
+    },
+    {
+      id: 2,
+      path: '/about',
+      text: 'About',
+    },
+  ];
+  return (
+    <nav className="navBar">
+      <ul>
+        {links.map((link) => (
+          <li key={link.id}>
+            <NavLink to={link.path} activeClassName="active-link">{link.text}</NavLink>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+};
 
 export default Navbar;

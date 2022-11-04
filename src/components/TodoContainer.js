@@ -1,39 +1,27 @@
-/* eslint-disable react/prefer-stateless-function */
-import React, { Component } from 'react';
+/* eslint-disable no-param-reassign */
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import NoMatch from '../pages/NoMatch';
+import About from '../pages/About';
+import Navbar from './Navbar';
+import Home from './Home';
+import AboutApp from '../pages/AboutApp';
+import AboutAuthor from '../pages/AboutAuthor';
 
-class TodoContainer extends Component {
-  constructor(props) {
-    super(props);
+const TodoContainer = () => (
+  <>
+    <Navbar />
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<About />}>
+        <Route path="aboutApp" element={<AboutApp />} />
+        <Route path="aboutAuthor" element={<AboutAuthor />} />
+        <Route path="*" element={<NoMatch />} />
+      </Route>
+      <Route path="*" element={<NoMatch />} />
+    </Routes>
+  </>
 
-    const state = {
-      todos: [
-        {
-          id: 1,
-          title: 'Setup development environment',
-          completed: true,
-        },
-        {
-          id: 2,
-          title: 'Develop website and add content',
-          completed: false,
-        },
-        {
-          id: 3,
-          title: 'Deploy to live server',
-          completed: false,
-        },
-      ],
-    };
-  }
-
-  render() {
-    return (
-      <div>
-        <h1>Hello from Create React App</h1>
-        <p>I am in a React Component!</p>
-      </div>
-    );
-  }
-}
+);
 
 export default TodoContainer;
